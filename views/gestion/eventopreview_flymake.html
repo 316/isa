@@ -1,0 +1,36 @@
+{{left_sidebar_enabled, right_sidebar_enabled=False, True}}
+
+{{extend 'layout.html'}}
+
+{{for uno in evento:}}
+<div class="sombra">
+    <h1 style="text-align:center">{{=uno.nombre}}</h1>
+    <strong>Fecha: {{=uno.fecha_ini}}</strong><br />
+    <strong>Lugar: {{=uno.lugar}}</strong>
+    <p>
+    {{=XML(uno.descripcion)}}
+    </p>
+    {{if uno.presentaciones:}}
+         {{=A(I(_class='icon-file icon-white'),'Actividades', _href=URL('gestion','presentaciones', vars=dict(id=uno.id, nombre=uno.nombre)), _class="btn btn-large btn-primary")}}
+    {{pass}}
+
+    {{=A(I(_class='icon-arrow-right icon-white'),'Identificarse para mas detalles', _href=URL('default','user/login', vars=dict(_next=URL('gestion','evento', vars=dict(id=request.vars.id, sponsors=request.vars.sponsors)))), _class="btn btn-large btn-primary")}}
+
+</div>
+{{pass}}
+
+<!-- Barra lateral para sponsors -->
+{{block right_sidebar}}
+<div class="sombra" style="text-align:center">
+<h3>Sponsors</h3>
+{{for categoria in categorias:}}
+    <h4>{{=categoria.nombre}}</h4>
+    {{for sponsor in sponsors:}}
+        {{if sponsor.sponsors.categoria==categoria.id:}}
+            {{=A(IMG(_src=URL('default','download',args=sponsor.sponsors.imagen),  _class="img-rounded"), _href="http://"+sponsor.sponsors.enlace)}}
+        {{pass}}
+    {{pass}}
+{{pass}}
+</div>
+{{end}}
+

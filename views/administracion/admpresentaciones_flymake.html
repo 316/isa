@@ -1,0 +1,9 @@
+ {{extend 'layout.html'}}
+{{=A('Agregar presentaciones', _href=URL('administracion','addpresentacion', vars=dict(id=llave)), _class='button')}}
+{{for presentacion in presentaciones:}}
+<div class="sombra">
+{{=presentacion.titulo}}
+{{=presentacion.disertante}}
+{{=presentacion.resumen}}
+</div>
+{{pass}}

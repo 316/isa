@@ -1,0 +1,6 @@
+{{extend 'layout.html'}}
+ <form>
+    <input name="dato" onkeyup="ajax('buscaasist', ['dato'], 'target')" />
+    <input type="submit" />
+ </form>
+ <div id="target"></div>

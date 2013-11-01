@@ -1,0 +1,57 @@
+<!DOCTYPE HTML>
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+	<TITLE></TITLE>
+	<META NAME="GENERATOR" CONTENT="LibreOffice 3.5  (Linux)">
+	<META NAME="CREATED" CONTENT="20130419;14354400">
+	<META NAME="CHANGED" CONTENT="20130419;17181600">
+	<STYLE TYPE="text/css">
+	<!--
+		@page { size: landscape; margin: 2cm }
+		TD P { margin-bottom: 0.21cm }
+		P { margin-bottom: 0.21cm }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="es-AR" DIR="LTR">
+{{=datos}}
+<P ALIGN=CENTER STYLE="margin-bottom: 0cm"><IMG SRC="certificado_html_m4a9c8117.jpg" NAME="graphics1" ALIGN=BOTTOM WIDTH=431 HEIGHT=204 BORDER=0></P>
+<P ALIGN=CENTER STYLE="margin-bottom: 0cm"><FONT FACE="URW Palladio L"><FONT SIZE=4 STYLE="font-size: 15pt">Por
+cuanto <italic><bold>{{=datos.auth_user.first_name}} {{=datos.auth_user.last_name}}</bold></italic>
+con <italic><bold>{{datos.auth_user.tdoc}} {{=datos.auth.user.dni}}</bold></italic> ha participado
+como asistente del {{datos.eventos.nombre.upper()}} edición 2013, se le
+extiende el presente certificado.</FONT></FONT></P>
+<P ALIGN=CENTER STYLE="margin-bottom: 0cm"><FONT FACE="URW Palladio L"><FONT SIZE=4 STYLE="font-size: 15pt">Salta,
+27 de abril de 2013</FONT></FONT></P>
+<TABLE WIDTH=100% CELLPADDING=4 CELLSPACING=1 border="0">
+
+	<TR VALIGN=TOP>
+		<TD WIDTH=25% HEIGHT=212 STYLE=" padding-top: 0.5cm;padding-left: 0.1cm; padding-right: 0cm">
+			<P ALIGN=CENTER><IMG SRC="certificado_html_m53b2454d.gif" NAME="graphics2" ALIGN=center WIDTH=131 HEIGHT=201 BORDER=0><BR CLEAR=RIGHT><BR>
+			</P>
+		</TD>
+		<TD WIDTH=25% STYLE=" padding-top: .5cm; padding-left: 0.1cm; padding-right: 2cm">
+			<P ALIGN=CENTER><BR><BR>
+			</P>
+			<P ALIGN=CENTER>_______________________________</P>
+			<P ALIGN=CENTER>Prof. Marta T. Diaz</P>
+			<P ALIGN=CENTER>Coordinadora Flisol 2013</P>
+			<P ALIGN=CENTER>Salta L.U.G.</P>
+		</TD>
+		<TD WIDTH=25% STYLE=" padding-top: .5cm;padding-left: 2cm; padding-right: 0cm">
+			<P ALIGN=CENTER><BR><BR>
+			</P>
+			<P ALIGN=CENTER>_________________________</P>
+			<P ALIGN=CENTER>Juan Perez</P>
+			<P ALIGN=CENTER>Algo de la UNSa</P>
+			<P ALIGN=CENTER>Pinche</P>
+		</TD>
+		<TD WIDTH=25% STYLE=" padding-top: 0.5cm">
+			<P ALIGN=CENTER><IMG SRC="certificado_html_m61604d1.png" NAME="graphics3" ALIGN=Center WIDTH=138 HEIGHT=206 BORDER=0>
+			</P>
+		</TD>
+	</TR>
+</TABLE>
+</BODY>
+</HTML>

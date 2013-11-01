@@ -1,0 +1,25 @@
+{{extend 'layout.html'}}
+<<<<<<< HEAD
+{{=A(I(_class="icon-plus icon-white"),'Agregar presentaciones', _href=URL('administracion','addpresentacion', vars=dict(id=request.vars.id)), _class='btn btn-primary')}}
+<hr />
+{{for presentacion in presentaciones:}}
+<div class="sombra">
+  <div><h4>Titulo: </h4>{{=presentacion.titulo}}</div>
+  <div><h4>Resumen: </h4>{{=presentacion.resumen}}</div>
+  <div><h4>{{=LOAD(c='loaders',f='disertantes.load',ajax=True, vars=dict(id=presentacion.id))}}</h4></div> 
+  <br />
+  {{=A(I(_class="icon-plus-sign icon-white"),'Agregar expositor/es', _href=URL('administracion','addpresentacion', vars=dict(id=llave)), _class='btn btn-primary')}}
+  {{=A(I(_class="icon-calendar icon-white"),'Asignar fecha', _href=URL('administracion','addpresentacion', vars=dict(id=llave)), _class='btn btn-primary')}}
+  {{=A(I(_class="icon-globe icon-white"),'Asignar lugar', _href=URL('administracion','addpresentacion', vars=dict(id=llave)), _class='btn btn-primary')}}
+  
+=======
+{{=A('Agregar presentaciones', _href=URL('administracion','addpresentacion', vars=dict(id=llave)), _class='button')}}
+{{for presentacion in presentaciones:}}
+<div class="sombra">
+  <div><h4>Titulo: </h4>{{=presentacion.presentaciones.titulo}}</div>
+  <div><h4>Disertante: </h4>{{=presentacion.disertantes.apellido}}, {{=presentacion.disertantes.nombre}}</div>
+  <div><h4>Resumen: </h4>{{=presentacion.presentaciones.resumen}}</div>
+>>>>>>> 612adb71e592a1ca63bea09ff93657458ad31203
+</div>
+<hr />
+{{pass}}

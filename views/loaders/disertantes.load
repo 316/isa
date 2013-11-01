@@ -1,0 +1,20 @@
+<div class="disertantes">
+     {{=expositores}}
+
+
+     
+     <!-- Button to trigger modal -->
+     <a href="#agregarModal" role="button" class="btn btn-primary" data-toggle="modal"><i class="icon-plus-sign icon-white"></i> Agregar disertante</a>
+     
+     <!-- Modal -->
+     <div id="agregarModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="agregarModalLabel" aria-hidden="true">
+     <div class="modal-header">
+     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+     <h3 id="agregarModalLabel">Seleccione el disertante</h3>
+     </div>
+     <div class="modal-body">
+          {{=agregar}}
+     </div>
+     </div>
+     
+</div>

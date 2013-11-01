@@ -1,0 +1,151 @@
+{{left_sidebar_enabled, right_sidebar_enabled=False, True}}
+
+{{extend 'layout.html'}}
+<<<<<<< HEAD
+{{if evento:}}
+{{for uno in evento:}}
+<div class="sombra">
+  <h1 style="text-align:center">{{=uno.nombre}}</h1>
+  <strong>Fecha: {{=uno.fecha_ini}}</strong><br />
+  <strong>Lugar: {{=uno.lugar}}</strong>
+  <p>{{=XML(uno.descripcion)}}</p>
+  {{=XML(uno.cronograma)}}
+  {{if uno.presentaciones:}}
+  {{=A(I(_class='icon-file icon-white'),'Actividades', _href=URL('gestion','presentaciones', vars=dict(id=uno.id, nombre=uno.nombre)), _class="btn btn-large btn-primary")}}
+  {{pass}}
+  <!-- Registro de usuarios -->
+  {{if uno.suscripciones:}}
+  {{if not(len(queryuser)):}}
+  {{=A(I(_class='icon-ok-sign icon-white'),'Registrarse', _href=URL('gestion','asistentes', vars=dict(id=uno.id, aid=auth.user_id, eid=uno.id, esp=uno.sponsors)), _class="btn btn-large btn-primary")}}
+  {{else:}}
+      {{for accion in queryuser:}}
+          {{if not(accion.certificado):}}
+          {{=A(I(_class='icon-check icon-white'),'Solicitar certificado', _href=URL('gestion','certificado', vars=dict(id=accion.id, eid=uno.id, esp=uno.sponsors)), _class="btn btn-large btn-primary")}}
+          {{else:}}
+          {{=A(I(_class='icon-check icon-white'),'Ya ha solicitado certificado', _class="btn btn-large btn-primary disabled")}}
+          {{pass}}
+      {{pass}}
+      {{if uno.installfest:}}
+          <a href="#instalaciones" role="button" class="btn btn-primary btn-large" data-toggle="modal"><i class="icon-wrench icon-white"></i>  Quiero llevar mi equipo al Install Fest!</a>
+      {{pass}}
+  {{pass}}
+  {{pass}}
+  <!-- Registro de usuarios -->
+</div>
+{{pass}}
+{{if len(comentarios):}}
+<h4>{{=len(comentarios)}} Comentarios</h4>
+{{for individual in comentarios:}}
+<div class="sombra">
+  <stong> El <em>{{=individual.comentarios.fecha}}, {{=individual.auth_user.first_name}} {{=individual.auth_user.last_name}} </em> dijo: </strong><br />
+<h5>{{=individual.comentarios.comentario}}</h5>
+</div>
+{{pass}}
+{{else:}}
+<h4>Aun no hay comentarios, se el primero!</h4>
+{{pass}}
+
+=======
+
+{{for uno in evento:}}
+<div class="sombra">
+    <h1 style="text-align:center">{{=uno.nombre}}<br /> <br />
+    <div>
+      {{=A(IMG(_src=URL('default','download',args=uno.imagen),  _class="img-rounded"))}}      
+    </div>
+    </h1>
+    <strong>Fecha: {{=uno.fecha_ini}}</strong><br />
+    <strong>Lugar: {{=uno.lugar}}</strong>
+    <p>
+    {{=uno.descripcion}}
+    </p>
+    {{if uno.presentaciones:}}
+         {{=A(I(_class='icon-file icon-white'),'Actividades', _href=URL('gestion','presentaciones', vars=dict(id=uno.id, nombre=uno.nombre)), _class="btn btn-large btn-primary")}}
+    {{pass}}
+    {{if uno.suscripciones:}}
+        {{if not(len(queryuser)):}}
+            {{=A(I(_class='icon-ok-sign icon-white'),'Registrarse', _href=URL('gestion','asistentes', vars=dict(id=uno.id, aid=auth.user_id)), _class="btn btn-large btn-primary")}}
+        {{pass}}
+    {{pass}}
+</div>
+{{pass}}
+{{if len(comentarios):}}
+	 <h4>{{=len(comentarios)}} Comentarios</h4>
+	 {{for individual in comentarios:}}
+	 <div class="sombra">
+	 <stong> El <em>{{=individual.comentarios.fecha}}, {{=individual.auth_user.first_name}} {{=individual.auth_user.last_name}} </em> dijo: </strong><br />
+         <h5>{{=individual.comentarios.comentario}}</h5>
+	 </div>
+	 {{pass}}
+	 {{else:}}
+	     <h4>Aun no hay comentarios, se el primero!</h4>
+	 {{pass}}
+{{pass}}
+>>>>>>> 612adb71e592a1ca63bea09ff93657458ad31203
+{{if auth.user:}}
+
+<a href="#comentar" role="button" class="btn btn-primary btn-large" data-toggle="modal"><i class="icon-comment icon-white"></i>  Escribir un comentario</a>
+
+{{pass}}
+
+<!-- Barra lateral para sponsors -->
+{{block right_sidebar}}
+<<<<<<< HEAD
+<div class="sombra" style="text-align:center">
+  <h3>Sponsors</h3>
+  {{for categoria in categorias:}}
+      <h4>{{=categoria.nombre}}</h4>
+      {{for sponsor in sponsors:}}
+          {{if sponsor.sponsors.categoria==categoria.id:}}
+              <hr />
+              {{=A(IMG(_src=URL('default','download',args=sponsor.sponsors.imagen),  _class="img-rounded"), _href="http://"+sponsor.sponsors.enlace)}}
+          {{pass}}
+      {{pass}}
+  {{pass}}
+=======
+<div class="sombra">
+<h3>Sponsors</h3>
+{{for categoria in categorias:}}
+    <h4>{{=categoria.nombre}}</h4>
+    {{for sponsor in sponsors:}}
+        {{if sponsor.sponsors.categoria==categoria.id:}}
+            {{=A(IMG(_src=URL('default','download',args=sponsor.sponsors.imagen),  _class="img-rounded"), _href="http://"+sponsor.sponsors.enlace)}}
+        {{pass}}
+    {{pass}}
+{{pass}}
+>>>>>>> 612adb71e592a1ca63bea09ff93657458ad31203
+</div>
+{{end}}
+
+<!--Modal para comentarios-->
+<div id="comentar" class="modal hide fade">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    <h3 style="color:black">Escriba su comentario</h3>
+  </div>
+  <div class="modal-body">
+    {{=comentario}}
+  </div>
+</div>
+<<<<<<< HEAD
+
+<!--Modal para instalaciones-->
+<div id="instalaciones" class="modal hide fade">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    <h3 style="color:black">Ingrese los datos de su equipo</h3>
+  </div>
+  <div class="modal-body">
+    {{=instalaciones}}
+    <div class="alert alert-success">
+    <strong> Puede traer mas de un equipo</strong>
+    </div>
+  </div>
+</div>
+
+
+{{else:}}
+<h1>El evento no existe, buen intento!</h1>
+{{pass}}
+=======
+>>>>>>> 612adb71e592a1ca63bea09ff93657458ad31203

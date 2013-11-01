@@ -1,0 +1,30 @@
+{{extend 'layout.html'}}
+<div class="sombra">
+<h1>{{=request.vars.nombre}}, lista de actividades</h1>
+</div>
+{{if len(lista):}}
+{{for elemento in lista:}}
+<div class="sombra">
+<h3>{{=elemento.presentaciones.titulo}}</h3>
+
+<h3>{{=elemento.presentaciones.duracion}}</h3>
+{{=elemento.presentaciones.resumen}}
+
+<!-- <br /><button type="button" class="btn btn-success" data-toggle="collapse" data-target="#{{=elemento.presentaciones.disertante}}"> -->
+<!-- Disertante -->
+<!-- </button> -->
+
+<!-- <div id="{{=elemento.presentaciones.disertante}}" class="collapse"> -->
+<!-- {{=crud.read(db.disertantes, elemento.presentaciones.disertante)}} -->
+<!-- </div> -->
+
+
+</div>
+{{pass}}
+{{else:}}
+<h3>Aun no hay actividades para este evento</h3>
+{{pass}}
+
+<script type="text/javascript">
+$("a[rel=popover]").popover();
+</script>

@@ -1,0 +1,31 @@
+{{extend 'layout.html'}}
+<!-- <script type="text/javascript"> -->
+<!--     $(document).ready(function(){ -->
+<!-- 	$(".sombra").hide().fadeIn(3000); -->
+<!--     }); -->
+<!-- </script> -->
+
+{{for evento in eventos:}}
+<div class="sombra">
+{{if evento.publicar:}}
+
+<<<<<<< HEAD
+<h1 style="text-align:center">{{=evento.nombre}}</h1>
+<!-- <div style="text-align:center">{{=A(IMG(_src=URL('default','download',args=evento.imagen),  _class="img-rounded"))}}</div> -->
+=======
+<h1>{{=evento.nombre}}</h1>
+<div style="text-align:center">{{=A(IMG(_src=URL('default','download',args=evento.imagen),  _class="img-rounded"))}}</div>
+>>>>>>> 612adb71e592a1ca63bea09ff93657458ad31203
+<!-- <h4>Lugar: {{=evento.lugar}}</h4> -->
+<!-- <h4>Descripcion del evento</h4> -->
+<p>{{=XML(evento.descripcion[:700])}}...</p>
+{{if auth.user:}}
+<h1>{{=A(I(_class='icon-hand-right icon-white'),' Ver mas...', _href=URL('gestion','evento', vars=dict(id=evento.id, sponsors=evento.sponsors)), _class="btn btn-primary")}}</h1>
+{{else:}}
+<h1>{{=A(I(_class='icon-hand-right icon-white'),' Ver mas...', _href=URL('gestion','eventopreview', vars=dict(id=evento.id, sponsors=evento.sponsors)), _class="btn btn-primary")}}</h1>
+
+</div>
+{{pass}}
+{{pass}}
+{{pass}}
+

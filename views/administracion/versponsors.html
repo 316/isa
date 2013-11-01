@@ -1,0 +1,15 @@
+{{extend 'layout.html'}}
+<h1>{{=request.vars.nombre}} lista de sponsors</h1>
+<table border="0">
+<tr>
+<th>Nombre del sponsor</th>
+<th>Categoria</th>
+</tr>
+{{for sponsor in sponsors:}}
+<tr>
+<td>{{=sponsor.sponsors.nombre}}</td>
+<td>{{=sponsor.categorias.nombre}}</td>
+<td>{{=A('Editar', _href=URL('administracion','modsponsor', args=sponsor.sponsors.id), _class='button')}}</td>
+</tr>
+{{pass}}
+</table>

@@ -1,0 +1,15 @@
+{{extend 'layout.html'}}
+
+<h1>Nuestros eventos anteriores</h1>
+<hr />
+{{for evento in eventos:}}
+{{if evento.publicar:}}
+<h3>{{=evento.nombre}}</h3>
+<h4>Lugar: {{=evento.lugar}}</h4>
+<h4>El evento fue realizado: {{=evento.fecha_ini}} </h4>
+<h4>Descripcion del evento</h4>{{=XML(evento.descripcion[:700])}}
+{{if evento.presentaciones:}}
+<h5>{{=A('Actividades', _href=URL('gestion','presentaciones', vars=dict(id=evento.id, nombre=evento.nombre)),_class='button')}}</h5>
+{{pass}}
+{{pass}}
+{{pass}}

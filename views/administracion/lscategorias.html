@@ -1,0 +1,6 @@
+{{extend 'layout.html'}}
+{{for categoria in listado:}}
+{{=A(categoria.nombre, _href=URL('administracion','addsponsor', vars=dict(id=categoria.id)))}}<br />
+{{pass}}
+
+

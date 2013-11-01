@@ -1,0 +1,43 @@
+{{extend 'layout.html'}}
+<div class="sombra">
+{{for evento in seleccionado:}}
+<h3>{{=evento.nombre}}
+{{=evento.fecha_ini}} {{=A(I(_class='icon-pencil icon-white'),'Editar', _href=URL('administracion','editaevento', vars=dict(eid=evento.id)), _class='btn btn-danger')}}</h3>
+
+{{if evento.suscripciones:}}
+<h4>Gestion de asistentes</h4>
+<div class="sombra">
+{{=A(I(_class='icon-list-alt icon-white'),'Ver asistentes', _href=URL('administracion','admasistentes', vars=dict(eid=evento.id, nombre=evento.nombre)), _class=('btn btn-primary'))}}
+
+{{=A(I(_class='icon-pencil icon-white'),'Verificar datos', _href=URL('administracion','admasistentes', vars=dict(eid=evento.id, nombre=evento.nombre)), _class=('btn btn-primary'))}}
+
+{{=A(I(_class='icon-check icon-white'),'Confirmar asistencia', _href=URL('administracion','admasistentes', vars=dict(eid=evento.id, nombre=evento.nombre)), _class=('btn btn-primary'))}}
+</div>
+{{pass}}
+
+{{if evento.presentaciones:}}
+{{=A(I(_class='icon-wrench icon-white'),'Administrar presentaciones', _href=URL('administracion','admpresentaciones', vars=dict(id=evento.id, nombre=evento.nombre)), _class=('btn btn-primary'))}}
+</div>
+{{pass}}
+{{if evento.sponsors:}}
+<h4>Gestion de sponsors y categorias</h4>
+<div class="sombra">
+  {{=A(I(_class='icon-list icon-white'),'Ver sponsors', _href=URL('administracion','versponsors', vars=dict(id=evento.id, nombre=evento.nombre)), _class=('btn btn-primary'))}}
+{{=A(I(_class='icon-plus icon-white'),'Nuevo sponsor', _href=URL('administracion','lscategorias', args=[evento.id, evento.nombre]), _class=('btn btn-primary'))}}
+{{=A(I(_class='icon-list icon-white'),'Ver categorias', _href=URL('administracion','vercategorias', vars=dict(id=evento.id, nombre=evento.nombre)), _class=('btn btn-primary'))}}
+{{=A(I(_class='icon-plus icon-white'),'Nueva categoria', _href=URL('administracion','addcategoria', vars=dict(id=evento.id, nombre=evento.nombre)), _class=('btn btn-primary'))}}
+</div>
+{{pass}}
+{{if evento.certificado or evento.personal:}}
+<h4>administracion de impresiones</h4>
+<div class="sombra">
+{{if evento.certificado:}}
+{{=A(I(_class='icon-print icon-white'),'Imprimir certificados', _href=URL('administracion','certificados', vars=dict(eid=evento.id)), _class=('btn btn-primary'))}}
+{{pass}}
+{{if evento.personal:}} 
+{{=A(I(_class='icon-print icon-white'),'Imprimir credenciales', _href=URL('administracion','credenciales', vars=dict(id=evento.id, nombre=evento.nombre)), _class=('btn btn-primary'))}}
+</div>
+{{pass}}
+{{pass}}
+{{pass}}
+</div>

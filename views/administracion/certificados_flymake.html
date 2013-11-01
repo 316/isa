@@ -1,0 +1,56 @@
+<!DOCTYPE HTML>
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+	<TITLE>Certificados</TITLE>
+	<META NAME="GENERATOR" CONTENT="LibreOffice 3.5  (Linux)">
+	<META NAME="CREATED" CONTENT="20130419;14354400">
+	<META NAME="CHANGED" CONTENT="20130419;17181600">
+	<STYLE TYPE="text/css">
+	<!--
+		@page { size: landscape; margin: 2cm }
+		TD P { margin-bottom: 0.21cm }
+		P { margin-bottom: 0.21cm }
+	-->
+	p{font-family:"Courier New"; font-size:20px} 
+	td{text-align:center}
+	</STYLE>
+</HEAD>
+<BODY LANG="es-AR" DIR="LTR">
+{{for dato in datos: }}
+
+<p style="text-align:center"><img src="{{=URL('default','download',args=dato.eventos.imagen)}}" height="220px"/></p>
+<div style="padding-left:3cm; padding-right:3cm">
+<P ALIGN=CENTER STYLE="margin-bottom: 0cm">Por cuanto <em><strong>{{=dato.auth_user.first_name}} {{=dato.auth_user.last_name}}</strong></em>
+con <em><strong>{{=dato.auth_user.tdoc}} {{=dato.auth_user.dni}}</strong></em> ha participado
+como asistente del {{=dato.eventos.nombre}}, se le extiende el presente certificado.</P>
+<P ALIGN=CENTER STYLE="margin-bottom: 0cm"><strong>Res. C.D. 173/2013</strong> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Salta, 27 de abril de 2013.</P>
+</div>
+<TABLE WIDTH=100% CELLPADDING=4 CELLSPACING=1 border="0">
+
+	<TR VALIGN=TOP>
+		<TD WIDTH=18% HEIGHT=212 STYLE="padding-right:0cm;padding-top: 0cm">
+			<P ALIGN=CENTER><IMG SRC="../static/images/saltalug.png" NAME="graphics3" ALIGN=Center HEIGHT=201></P>
+		</TD>
+		<TD WIDTH=32% STYLE="padding-left: 0cm; padding-right: .5cm">
+		  <br /><br /><br /><br /><br /><br />
+		  <hr STYLE="padding-left: .8cm; padding-right: .8cm"  />
+		  <P>Prof. Marta T. Diaz <br />
+		    Coord. Flisol 2013 <br />
+		    Salta L.U.G.</P>
+		</TD>
+		<TD WIDTH=32% STYLE="padding-left: .5cm; padding-right: 0cm">
+		   <br /><br /><br /><br /><br /><br />
+		  <hr STYLE="padding-left: .8cm; padding-right: .8cm"  />
+		  <P>Mg. Marcelo Gea <br />
+		     Secretario de Extension <br />
+		     UNSa</P>
+		</TD>
+		<TD WIDTH=18% STYLE="padding-right:0cm;padding-top: 0cm">
+			<P ALIGN=CENTER><IMG SRC="../static/images/escudounsa.gif" NAME="graphics2" ALIGN=center HEIGHT=201></P>
+		</TD>
+	</TR>
+</TABLE>
+{{pass}}
+</BODY>
+</HTML>

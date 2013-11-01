@@ -1,0 +1,10 @@
+{{extend 'layout.html'}}
+<h1>Administracion de eventos</h1>
+{{=A(I(_class='icon-plus-sign icon-white'),'Crear un evento', _href=URL('administracion','nuevoevento'), _class='btn btn-primary')}}
+{{=A(I(_class='icon-user icon-white'),'Agregar Expositor', _href=URL('administracion','addexpositor'), _class='btn btn-primary')}}
+
+{{for evento in eventos:}}
+<div class="sombra"><h3>{{=evento.nombre}}
+{{=evento.fecha_ini}} {{=A(I(_class='icon-wrench icon-white'),'Administrar', _href=URL('administracion','admevento', vars=dict(eid=evento.id)), _class='btn btn-success')}}</h3>
+</div>
+{{pass}}

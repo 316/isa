@@ -1,0 +1,53 @@
+{{if (len(categorias)>1):}}
+{{left_sidebar_enabled, right_sidebar_enabled=False, True}}
+{{pass}}
+{{extend 'layout.html'}}
+
+{{for uno in evento:}}
+<div class="sombra">
+    <h1>{{=uno.nombre}}<h1>
+</div>
+    <strong>Fecha: {{=uno.fecha_ini}}</strong><br />
+    <strong>Lugar: {{=uno.lugar}}</strong>
+    <p class="sombra">
+    {{=uno.descripcion}}
+    </p>
+    {{if uno.presentaciones:}}
+         <h5>{{=A('Actividades', _href=URL('gestion','presentaciones', vars=dict(id=uno.id, nombre=uno.nombre)), _class="button")}}</h5>
+    {{pass}}
+    {{if uno.suscripciones:}}
+	 <h5>{{=A('Registrarse', _href=URL('gestion','asistentes', vars=dict(id=uno.id, aid=auth.user_id)), _class="button")}}</h5>
+    {{pass}}
+{{pass}}
+{{if len(comentarios):}}
+	 <h2>{{=len(comentarios)}} Comentarios</h2>
+	 {{for individual in comentarios:}}
+	 <div class="sombra">
+	 <stong> El <em>{{=individual.fecha}}, {{=individual.nombre}} </em> dijo: </strong><br />
+         <h5>{{=individual.comentario}}</h5>
+	 </div>
+	 {{pass}}
+	 {{else:}}
+	     <h2>Aun no hay comentarios, se el primero!</h2>
+	 {{pass}}
+{{pass}}
+<h2>Comentar</h2>
+<div class="sombra">
+{{=comentario}}
+</div>
+
+<!-- Barra lateral para sponsors -->
+{{block right_sidebar}}
+<div class="sombra">
+<h3>Auspician este evento:</h3>
+{{for categoria in categorias:}}
+    <h4>{{=categoria.nombre}}</h4>
+    {{for sponsor in sponsors:}}
+        {{if sponsor.sponsors.categoria==categoria.id:}}
+            {{=sponsor.sponsors.nombre}}
+        {{pass}}
+    {{pass}}
+{{pass}}
+</div>
+{{end}}
+

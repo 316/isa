@@ -1,0 +1,15 @@
+{{extend 'layout.html'}}
+
+<h1>{{=request.vars.nombre}} categorias disponibles  para este evento</h1>
+<table>
+<tr>
+<th>Nombre</th>
+</tr>
+{{for categoria in categorias:}}
+<tr>
+<td>{{=categoria.nombre}}</td>
+<td>{{=A('Editar', _href=URL('administracion','editcategoria', args=categoria.id), _class='button')}}
+</tr>
+{{pass}}
+</table>
+
